@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
 .App {
   text-align: center;
 }
@@ -35,4 +38,227 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.nav-bar{
+  background-color: transparent;
+}
+
+.nav-bar .nav-link{
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 600;
+  justify-content: center;
+}
+
+.nav-bar .nav-link:focus{
+  color: white;
+}
+
+.nav-bar .nav-link:hover{
+  color: white;
+}
+
+section#about-page{
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+.nav-link.black{
+  color: black;
+}
+
+.home{
+  background-image: url('https://images.unsplash.com/photo-1533231595355-864c380aa5f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+.home.dark{
+  filter: brightness(50%);
+}
+
+.home .title-part{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.home .main-title{
+  color: white;
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.about-content .main-title{
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+}
+
+.bars{
+  color: white;
+  font-size: 2.5rem;
+}
+
+.navbar-dark .navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3Csvg fill='white' width='100' height='125' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --%3E%3Cpath d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z'/%3E%3C/svg%3E") !important;
+}
+
+section#about-page{
+  height: 100vh;
+  padding: 8%;
+}
+
+
+.home .title-part .sub-title{
+  font-weight: 200;
+  font-size: 1.5rem;
+  color: white;
+  letter-spacing: 0.5rem;
+}
+
+.login-modal .close-button{
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.login-modal p.title{
+  font-size: 2.3rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.login-modal .icons{
+  display: flex;
+  justify-content: center
+}
+
+.login-modal .login-form .form-label{
+  font-family: 'Lato', sans-serif;
+}
+
+.login-modal .login-form input::placeholder{
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+}
+
+.login-modal .login-form .form-check label{
+  font-family: 'Lato', sans-serif;
+}
+
+.login-modal .login-form button{
+  border-radius: 30px;
+}
+
+.home .title-part{
+  width: 100%;
+  text-align: center;
+}
+
+.login-modal .login-footer p{
+  font-family: 'Late', sans-serif;
+  size: 10%;
+  color: gray;
+  font-weight: 200;
+}
+
+.login-modal .modal-footer{
+  justify-content: center;
+  border-top: none;
+}
+
+.login-modal .login-footer p span{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-modal .forgot-password{
+  cursor: pointer;
+  text-decoration: underline;
+  color: grey;
+  font-weight: 200;
+  font-family: 'Lato', sans-serif;
+}
+
+.sign-up-modal .close-button{
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.sign-up-modal p.title{
+  font-size: 2.3rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sign-up-modal .icons{
+  display: flex;
+  justify-content: center
+}
+
+.sign-up-modal .login-form .form-label{
+  font-family: 'Lato', sans-serif;
+}
+
+.sign-up-modal .login-form input::placeholder{
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+}
+
+.sign-up-modal .login-form .form-check label{
+  font-family: 'Lato', sans-serif;
+}
+
+.sign-up-modal .login-form button{
+  border-radius: 30px;
+}
+
+.sign-up-modal .title-part{
+  width: 100%;
+  text-align: center;
+}
+
+.sign-up-modal .login-footer p{
+  font-family: 'Late', sans-serif;
+  size: 10%;
+  color: gray;
+  font-weight: 200;
+}
+
+.sign-up-modal .modal-footer{
+  justify-content: center;
+  border-top: none;
+}
+
+.sign-up-modal .login-footer p span{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.sign-up-modal .forgot-password{
+  cursor: pointer;
+  text-decoration: underline;
+  color: grey;
+  font-weight: 200;
+  font-family: 'Lato', sans-serif;
+}
+
+.sign-up-modal .modal-footer .policy p{
+  text-align: center;
+  font-size: 70%;
+  font-family: 'Lato', sans-serif;
 }
