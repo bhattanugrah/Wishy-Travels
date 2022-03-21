@@ -1,6 +1,7 @@
 import React from "react";
 import { Header } from "../layout";
 import About from "./aboutPage";
+import { ToastContainer } from "react-toastify";
 
 
 const Home = () =>{
@@ -33,6 +34,18 @@ const Home = () =>{
             </div>
         </div>
         <About/>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          />
+          {/* Same as */}
         </>
     )
 }
