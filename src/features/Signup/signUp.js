@@ -6,28 +6,37 @@ import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-bootstrap";
+import {setSignUpModalShow} from '../../layout/store'
+import {useDispatch} from 'react-redux';
 
 export const Signup = (props) =>{
 
     const navigate = useNavigate();
 
+    const dispatch = useDispatch();
+
+    const closeModal = (value) =>{
+        dispatch(setSignUpModalShow(value));
+    }
+
+    const resetData = () =>{
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPassword("");
+    }
+
 
     const[firstName, setFirstName] = React.useState("");
     const[lastName, setLastName] = React.useState("");
+    const[username, setUsername] = React.useState("");
     const[email, setEmail] = React.useState("");
     const[password, setPassword] = React.useState("");
-
-
-    // const days=[];
-    // for(var i=0; i<=31; i++){
-    //     days.push(i);
-    // }
-    // const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    // const years = [...Array(new Date().getFullYear() - 1989).keys()].map((e)=>e+1970)
 
     const data = {
         firstName: firstName,
         lastName: lastName,
+        username: username,
         email: email,
         password: password
     }
@@ -43,6 +52,9 @@ export const Signup = (props) =>{
             toast.success("User succesfully Registered");
             navigate("/", {replace: true});
             console.log("It is working!");
+            setSignUpModalShow(false);
+            closeModal(false);
+            resetData();
         }
         else{
             toast.error("There was an error registering the user");
@@ -74,6 +86,11 @@ export const Signup = (props) =>{
                             </Col>
                             <Col>
                                 <Form.Control type="text" placeholder="Last Name" value={lastName} onChange = {(e)=>{setLastName(e.target.value)}} />
+                            </Col>
+                        </Row>
+                        <Row className="mb-3">
+                            <Col>
+                                <Form.Control type="text" placeholder="Enter a username" value={username} onChange={(e) => {setUsername(e.target.value)}} />
                             </Col>
                         </Row>
                         <Row className="mb-3">

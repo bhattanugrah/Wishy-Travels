@@ -1,8 +1,8 @@
-import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import LayoutReducer from '../layout/store'
 
 export const store = configureStore({
     reducer:{
-        auth: AuthSlice,
         layout: LayoutReducer,
     }
-})
+});
