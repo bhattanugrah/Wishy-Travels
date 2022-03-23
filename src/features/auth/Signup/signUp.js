@@ -6,7 +6,7 @@ import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-bootstrap";
-import {setSignUpModalShow} from '../../layout/store'
+import {setSignUpModalShow} from '../../../layout/store'
 import {useDispatch} from 'react-redux';
 
 export const Signup = (props) =>{

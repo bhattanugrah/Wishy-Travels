@@ -3,7 +3,7 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { Signup } from "..";
+import { Signup } from "../..";
 
 
 

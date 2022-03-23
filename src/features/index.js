@@ -1,5 +1,5 @@
-import { Login } from "./Login/login";
-import { Signup } from "./Signup/signUp";
+import { Login } from "./auth/Login/login";
+import { Signup } from "./auth/Signup/signUp";
 
 export{
     Login,
