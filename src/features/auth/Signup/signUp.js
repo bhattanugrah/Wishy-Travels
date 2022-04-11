@@ -47,17 +47,22 @@ export const Signup = (props) =>{
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify(data)
         }
-        const response = await fetch('http://localhost:3000/users/user', requestOptions);
-        if(response){
+        const apiResponse = await fetch('http://localhost:3000/api/users/signup', requestOptions);
+        if(!apiResponse.ok){
+            apiResponse.json()
+            .then(responses =>
+               responses.errors.forEach( error =>{
+                    toast.error(error.msg)
+               })
+            )
+        }
+        else{
             toast.success("User succesfully Registered");
             navigate("/", {replace: true});
             console.log("It is working!");
             setSignUpModalShow(false);
             closeModal(false);
             resetData();
-        }
-        else{
-            toast.error("There was an error registering the user");
         }
     }
 

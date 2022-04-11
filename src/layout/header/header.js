@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Login, Signup } from "../../features";
 import { setSignUpModalShow, selectSignUpModalShow, selectModalShow, setModalShow } from "../store";
 import { useDispatch, useSelector } from 'react-redux'
+import { logOutUser, selectIsLoggedIn } from "../../features/auth/store";
+
 
 const Header = () =>{
 
@@ -12,6 +14,10 @@ const Header = () =>{
 
     const loginModalShow = useSelector(selectModalShow);
     const signUpModalShow = useSelector(selectSignUpModalShow);
+
+    const isLoggedIn = useSelector(selectIsLoggedIn);
+
+    
 
     const toggle = () =>{
         var elem = document.querySelector(".home");
@@ -22,9 +28,18 @@ const Header = () =>{
         dispatch(setModalShow(value))
     }
 
+
     const signUpModal = (value) =>{
         dispatch(setSignUpModalShow(value))
     }
+
+    const handleLogOut = () =>{
+        dispatch(logOutUser())
+    }
+
+
+
+
     return(
         <Navbar collapseOnSelect className="nav-bar" expand="lg" variant="dark" fixed="top">
             <Container >   
@@ -34,7 +49,7 @@ const Header = () =>{
                     <Nav.Link className="nav-link" href="#about-page">About</Nav.Link>
                     <Nav.Link className="nav-link" href="#link">Contact</Nav.Link>
                     <Nav.Link className="nav-link" onClick={() => signUpModal(true)}>SignUp</Nav.Link>
-                    <Nav.Link className="nav-link" onClick={() => loginModal(true)}>Login</Nav.Link>
+                    {!isLoggedIn? <Nav.Link className="nav-link" onClick={() => loginModal(true)}>Login</Nav.Link>:<Nav.Link className="nav-link" onClick={() => handleLogOut()}>Logout</Nav.Link>}
                 </Navbar.Collapse>
             </Container>
 

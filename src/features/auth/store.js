@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 
 export const AuthSlice = createSlice({
@@ -7,19 +7,12 @@ export const AuthSlice = createSlice({
         loading: false,
         message:'',
         token:'',
-
-
         user:{
             id: 0,
             firstName: '',
             lastName: '',
             username: '',
-            email: '',
-            email_verified_at: new Date(),
-            phone_verified_at: new Date() | null,
-            status: true,
-            created_at: new Date(),
-            updated_at: new Date()
+            email: ''
         },
         scopes:[],
         settings: {
@@ -37,8 +30,8 @@ export const AuthSlice = createSlice({
             state.message = action.payload;
         },
         setToken:(state, action)=>{
-            localStorage.setItem("token", action.payload);
             state.token = action.payload;
+            localStorage.setItem("token", action.payload);
             state.isLoggedIn = true;
         },
         setRToken:(state, action)=>{
@@ -50,6 +43,7 @@ export const AuthSlice = createSlice({
         /*Start User*/
         setUser:(state, action)=>{
             state.user = action.payload;
+            localStorage.setItem('User', JSON.stringify(action.payload));
         },
         setScope:(state, action)=>{
             localStorage.setItem('scopes', JSON.stringify(action.payload));
@@ -84,11 +78,21 @@ export const {
 } = AuthSlice.actions;
 
 //start user
-export const logUser = () =>(dispatch) =>{
-    dispatch(setUser());
-    dispatch(setToken(token));
-    dispatch(setRToken(refresh));
-    dispatch(setScope(scope));
-    dispatch(setSetting(setting));  
+export const logUser = (response) =>(dispatch) =>{
+    dispatch(setUser(response.loggedUser));
+    dispatch(setToken(response.token));
+    // console.log(response.firstName, response.lastName, response.email, response.username)
+    // dispatch(setRToken(response.refresh));
     dispatch(setLoading(false));
 }
+
+export const logOutUser = () =>async (dispatch) =>{
+    localStorage.clear();
+    dispatch(refresh())
+}
+
+export const selectUser = (state) => state.auth.user;
+export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
+
+
+export default AuthSlice.reducer;
