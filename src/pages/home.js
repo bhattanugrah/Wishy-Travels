@@ -4,6 +4,7 @@ import About from "./aboutPage";
 import { toast, ToastContainer } from "react-toastify";
 import {Row, Col, Card} from "react-bootstrap";
 import Carousel from "react-elastic-carousel";
+import { Button } from "react-bootstrap";
 
 
 const Home = () =>{
@@ -37,12 +38,25 @@ const Home = () =>{
     onscroll = () => {
         if(window.scrollY > 600){
             const navLink = document.querySelectorAll('.nav-link')
+            const navStyle = document.querySelector('.nav-bar')
+            const logoBlack = document.querySelector('.black-logo')
+            const logoWhite = document.querySelector('.white-logo')
+            navStyle.classList.add("navigation-bar-style")
+            logoWhite.classList.add("d-none")
+            logoBlack.classList.remove("d-none")
             navLink.forEach(element=>{
                 element.classList.add("black");
             })
+
         }
         else if(window.scrollY < 750){
             const navLink = document.querySelectorAll('.nav-link')
+            const navStyle = document.querySelector('.nav-bar')
+            const logoBlack = document.querySelector('.black-logo')
+            const logoWhite = document.querySelector('.white-logo')
+            logoWhite.classList.remove("d-none")
+            logoBlack.classList.add("d-none")
+            navStyle.classList.remove("navigation-bar-style");
             navLink.forEach(element=>{
                 element.classList.remove("black");
             })
@@ -76,8 +90,9 @@ const Home = () =>{
                                         <Card.Img variant="top" className="card-image" src="https://images.unsplash.com/photo-1611231832033-c3d79cbf2777?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" />
                                         <Card.Body>
                                             <Card.Title>{items.name}</Card.Title>
-                                            <Card.Text>
+                                            <Card.Text className="d-flex justify-content-between">
                                                 ₹{items.price}
+                                                <Button as="input" type="button" value="Explore" size="sm"/>
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
