@@ -87,7 +87,11 @@ const Home = () =>{
                             {packages.map((items) => (
                                 <Col md={10}>
                                     <Card>
-                                        <Card.Img variant="top" className="card-image" src="https://images.unsplash.com/photo-1611231832033-c3d79cbf2777?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" />
+                                        {
+                                            items.images.map((image)=>(
+                                                <Card.Img variant="top" className="card-image" src={image.filePath} />
+                                            ))
+                                        }
                                         <Card.Body>
                                             <Card.Title>{items.name}</Card.Title>
                                             <Card.Text className="d-flex justify-content-between">
