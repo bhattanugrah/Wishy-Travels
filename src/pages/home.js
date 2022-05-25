@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 import { Header } from "../layout";
 import About from "./aboutPage";
 import { toast, ToastContainer } from "react-toastify";
-import {Row, Col, Card} from "react-bootstrap";
-import Carousel from "react-elastic-carousel";
+import {Row, Col, Card, Carousel} from "react-bootstrap";
+import CarouselStyle from "react-elastic-carousel";
 import { Button } from "react-bootstrap";
 
 
@@ -83,15 +83,19 @@ const Home = () =>{
                 </div>
                 <div className="packages-carousel">
                     <Row xs={1} md={2} className="g-4 justify-content-center">
-                        <Carousel breakPoints={breakPoints} >
+                        <CarouselStyle breakPoints={breakPoints} >
                             {packages.map((items) => (
                                 <Col md={10}>
                                     <Card>
-                                        {
-                                            items.images.map((image)=>(
-                                                <Card.Img variant="top" className="card-image" src={image.filePath} />
-                                            ))
-                                        }
+                                        <Carousel>
+                                            {
+                                                items.images.map((image)=>(
+                                                    <Carousel.Item className="img-container">
+                                                        <Card.Img variant="top" className="card-image img-responsive" src={image.filePath} />
+                                                    </Carousel.Item>    
+                                                ))
+                                            }
+                                        </Carousel>
                                         <Card.Body>
                                             <Card.Title>{items.name}</Card.Title>
                                             <Card.Text className="d-flex justify-content-between">
@@ -102,7 +106,7 @@ const Home = () =>{
                                     </Card>
                                 </Col>
                             ))}
-                        </Carousel>
+                        </CarouselStyle>
                     </Row>
                 </div>
             </div>
