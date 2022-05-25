@@ -83,15 +83,15 @@ const Home = () =>{
                 </div>
                 <div className="packages-carousel">
                     <Row xs={1} md={2} className="g-4 justify-content-center">
-                        <CarouselStyle breakPoints={breakPoints} >
+                        <CarouselStyle breakPoints={breakPoints} pagination={true}  >
                             {packages.map((items) => (
-                                <Col md={10}>
-                                    <Card>
+                                <Col key={items.id} md={10}>
+                                    <Card className="package-card" key={items.id}>
                                         <Carousel>
                                             {
                                                 items.images.map((image)=>(
                                                     <Carousel.Item className="img-container">
-                                                        <Card.Img variant="top" className="card-image img-responsive" src={image.filePath} />
+                                                        <Card.Img key={image.id} variant="top" className="card-image img-responsive" src={image.filePath} />
                                                     </Carousel.Item>    
                                                 ))
                                             }
